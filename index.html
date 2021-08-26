@@ -1,58 +1,61 @@
-<div>
-  <!-- 드롭다운 리스트 생성 -->
-  <select onchange="javascript:pdf_read(this.value); " 
-  style="height:35px; background:#1e1e1e; width:170px; color:#fff; border-left:1px solid #5d5d5d; 
-  border-top:1px solid #5d5d5d; border-right:1px solid #5d5d5d; border-bottom:1px solid #1e1e1e;">
-          <option value="pdf_1">이력서</option>
-  </select>
-</div>
+<html>
+  <body style="margin: 0px;"
+  <div>
+    <!-- 드롭다운 리스트 생성 -->
+    <select onchange="javascript:pdf_read(this.value); " 
+    style="height:35px; background:#1e1e1e; width:170px; color:#fff; border-left:1px solid #5d5d5d; 
+    border-top:1px solid #5d5d5d; border-right:1px solid #5d5d5d; border-bottom:1px solid #1e1e1e;">
+            <option value="pdf_1">이력서</option>
+    </select>
+  </div>
 
-<!-- PDF 출력 div -->
-<div id="example1"></div>
+  <!-- PDF 출력 div -->
+  <div id="example1"></div>
 
-<!-- PDFObject 스크립트 호출 -->
-<script src="js/pdfobject.js"></script>
+  <!-- PDFObject 스크립트 호출 -->
+  <script src="js/pdfobject.js"></script>
 
-<!-- PDFObject 옵션 설정 -->
-<script>
-  var options = {
-  height: "500px",
-  page: '1',
-  pdfOpenParams: {
-          view: 'FitV',
-          pagemode: 'thumbs',
-          search: 'lorem ipsum'
-  },
-  
-  forcePDFJS: true, // 강제로 PDF Viewer를 실행시키는 옵션
-PDFJS_URL: "web/viewer.html" //PDF.js의 PDF viewer를 viewer로 지정.
-  };
+  <!-- PDFObject 옵션 설정 -->
+  <script>
+    var options = {
+    height: "500px",
+    page: '1',
+    pdfOpenParams: {
+            view: 'FitV',
+            pagemode: 'thumbs',
+            search: 'lorem ipsum'
+    },
+    
+    forcePDFJS: true, // 강제로 PDF Viewer를 실행시키는 옵션
+  PDFJS_URL: "web/viewer.html" //PDF.js의 PDF viewer를 viewer로 지정.
+    };
 
-  //제일 처음 열리는 pdf파일 경로 설정.
-  PDFObject.embed("../files/pdf.pdf", "#example1", options);
-</script>
-
-<!-- 드롭다운리스트에서 선택한 내용에 맞게 pdf파일을 호출하는 함수 작성 -->
-<script>
-  function pdf_read(file_path){                
-          
-          if (file_path == "pdf_1" ){
-                  myPDF_viewer = PDFObject.embed("../files/pdf.pdf", "#example1", options);            
-          }
-          // else if (file_path == "pdf_2" ){
-          //         myPDF_viewer = PDFObject.embed("files/samplepdf2.pdf", "#example1", options);            
-          // }
-          // else if (file_path == "pdf_3" ){
-          //         myPDF_viewer = PDFObject.embed("files/samplepdf3.pdf", "#example1", options);            
-          // }
-          // else if (file_path == "pdf_4" ){
-          //         myPDF_viewer = PDFObject.embed("files/samplepdf4.pdf", "#example1", options);            
-          // }                
-  }
+    //제일 처음 열리는 pdf파일 경로 설정.
+    PDFObject.embed("../files/pdf.pdf", "#example1", options);
   </script>
 
-<!-- PDF viewer 스타일 지정 -->
-<style>
-  .pdfobject-container { width: 100%; height: 97.5%;}
-  .pdfobject { border: 1px solid #666; }
-</style>
+  <!-- 드롭다운리스트에서 선택한 내용에 맞게 pdf파일을 호출하는 함수 작성 -->
+  <script>
+    function pdf_read(file_path){                
+            
+            if (file_path == "pdf_1" ){
+                    myPDF_viewer = PDFObject.embed("../files/pdf.pdf", "#example1", options);            
+            }
+            // else if (file_path == "pdf_2" ){
+            //         myPDF_viewer = PDFObject.embed("files/samplepdf2.pdf", "#example1", options);            
+            // }
+            // else if (file_path == "pdf_3" ){
+            //         myPDF_viewer = PDFObject.embed("files/samplepdf3.pdf", "#example1", options);            
+            // }
+            // else if (file_path == "pdf_4" ){
+            //         myPDF_viewer = PDFObject.embed("files/samplepdf4.pdf", "#example1", options);            
+            // }                
+    }
+    </script>
+
+  <!-- PDF viewer 스타일 지정 -->
+  <style>
+    .pdfobject-container { width: 100%; height: 100%;}
+    .pdfobject { border: 1px solid #666; }
+  </style>
+</html>
