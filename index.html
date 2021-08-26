@@ -29,7 +29,7 @@ PDFJS_URL: "/web/viewer.html" //PDF.js의 PDF viewer를 viewer로 지정.
   };
 
   //제일 처음 열리는 pdf파일 경로 설정.
-  PDFObject.embed("web/pdf.pdf", "#example1", options);
+  PDFObject.embed("/web/pdf.pdf", "#example1", options);
 </script>
 
 <!-- 드롭다운리스트에서 선택한 내용에 맞게 pdf파일을 호출하는 함수 작성 -->
@@ -37,7 +37,7 @@ PDFJS_URL: "/web/viewer.html" //PDF.js의 PDF viewer를 viewer로 지정.
   function pdf_read(file_path){                
           
           if (file_path == "pdf_1" ){
-                  myPDF_viewer = PDFObject.embed("web/pdf.pdf", "#example1", options);            
+                  myPDF_viewer = PDFObject.embed("/web/pdf.pdf", "#example1", options);            
           }
           // else if (file_path == "pdf_2" ){
           //         myPDF_viewer = PDFObject.embed("files/samplepdf2.pdf", "#example1", options);            
